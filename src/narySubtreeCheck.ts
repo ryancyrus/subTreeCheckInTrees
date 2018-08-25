@@ -1,3 +1,7 @@
+/**
+ * @todo : add this regex to match val's value if it is string
+ * regex : /^[a-zA-Z]/g
+ */
 export interface DomNode {
   val: string;
   children?: Array<DomNode>;
