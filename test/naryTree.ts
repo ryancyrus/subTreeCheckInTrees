@@ -1,7 +1,5 @@
 import { expect } from 'chai';
-import { DomNode } from '../src/narySubtreeCheck';
-import { isSubtree } from '../src/narySubtreeCheck';
-import { containsTree } from '../src/narySubtreeCheck';
+import { DomNode, isSubtree, containsTree } from '../src/narySubtreeCheck';
 
 describe("N-ary Subtree check using string computation", () => {
     it("3-ary Tree 1: Test 1 - Is a subtree", () => {

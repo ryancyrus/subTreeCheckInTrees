@@ -12,7 +12,7 @@ export function isSubtree(dom: DomNode, vdom: DomNode, k: number): boolean {
 function stringFromPreOrder(tree: DomNode, k: number): string {
     let treeString = "";
     let absentNodes = k;
-    treeString += tree.val;
+    treeString += tree.val === "" ? "^" : tree.val;
     if (tree.children) {
         absentNodes -= tree.children.length;
         for (let node of tree.children) {
@@ -30,7 +30,6 @@ export function containsTree(dom: DomNode, vdom: DomNode): boolean {
     }
 
     return subtree(dom, vdom);
-
 }
 
 function subtree(dom: DomNode, vdom: DomNode): boolean {
@@ -47,16 +46,28 @@ function subtree(dom: DomNode, vdom: DomNode): boolean {
             }
         }
     }
+    
     //dom.val != vdom.val
     return false;
-
 }
 
 function matchTree(dom: DomNode, vdom: DomNode): boolean {
+    /*Base Case
+    If values don't match, return */
+    if (dom.val != vdom.val) {
+        return false; //does not match
+    }
 
+    /*Now we know that the values are same
+    Check if both of them has same number of children
+    This allows us to cut short visit early.
+    If any of them does not have any children then,
+    dom.children will be undefined. 
+     We change the length of children to zero
+    in such case.*/
     let bigChildrenLength: number = 0;
     let smallChildrenLength: number = 0;
-
+    
     if (dom.children != undefined) {
         bigChildrenLength = dom.children.length;
     }
@@ -65,29 +76,25 @@ function matchTree(dom: DomNode, vdom: DomNode): boolean {
         smallChildrenLength = vdom.children.length;
     }
 
-    if (!dom && !vdom) {
-        return true; //Both empty trees are a match
-    } else if (!dom || !vdom) {
-        return false; //tree empty, does not match
-    } else if (dom.val != vdom.val) {
-        return false; //does not match
-    } else if (bigChildrenLength != smallChildrenLength) {
+    if (bigChildrenLength != smallChildrenLength) {
         return false; //Child nodes of trees are not equal
     } else if (dom.children && vdom.children && (bigChildrenLength == smallChildrenLength)) {
+        /*Now the fact is established that both nodes have same values and
+        same number of children. However, there can be zero children too.
+        Therefore, we checked if children are present and they are same in numbers.*/               
         let childrenMatch: boolean = true
+        //We will now match each children of both nodes. 
         for (let i = 0; i < dom.children.length; i++) {
             childrenMatch = matchTree(dom.children[i], vdom.children[i])
+            //If even one of them is not matched we will return false.
             if (!childrenMatch) {
                 return childrenMatch;
             }
         }
+        //All children matched, return true.
         return childrenMatch;
-
-    } else if (dom.val == vdom.val) {
-        return true;
     }
-
-    return false;
+    /*After covering above cases, we know that both nodes have same value and they dont have children
+    Therefore we can simply return True.*/
+    return true;
 }
-
-

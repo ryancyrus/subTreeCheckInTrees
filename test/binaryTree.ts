@@ -1,8 +1,7 @@
 import { expect } from 'chai';
-import { DomNode } from '../src/binarySubtreeCheck';
-import { isSubtree} from '../src/binarySubtreeCheck';
+import { DomNode, isSubtree } from '../src/binarySubtreeCheck';
 
-describe('Check subtree using Preorder traversal with termination markup', () => {
+describe('Check subtree using Preorder traversal with termination markup.', () => {
     it("Original Test - Is a subtree", () => {
         const dom: DomNode = {
             value: "root",
@@ -461,4 +460,418 @@ describe('Check subtree using Preorder traversal with termination markup', () =>
 
 
 
+});
+
+describe("Subtree check with empty string as node in main tree.", () => {
+    it("Tree 10: Test 1 - Middle node is empty string - Not a subtree", () => {
+        const dom: DomNode = {
+            value: "b",
+            left: {
+                value: "a"
+            },
+            right: {
+                value: "d",
+                left: {
+                    value: "c"
+                },
+                right: {
+                    value: "",
+                    right: {
+                        value: "f"
+                    }
+                }
+            }
+        }
+
+        const vdom: DomNode = {
+            value: "d",
+            left: {
+                value: "c"
+            },
+            right: {
+                value: "f"
+            }
+        }
+
+        expect(isSubtree(dom, vdom)).to.equal(false)
+    });
+
+    /*This test will only pass if leaf nodes are marked as well as empty string node*/
+    it("Tree 10: Test 2 - The only Leaf is empty string - Not a subtree", () => {
+        const dom: DomNode = {
+            value: "b",
+            left: {
+                value: "a"
+            },
+            right: {
+                value: "d",
+                left: {
+                    value: "c"
+                },
+                right: {
+                    value: "f",
+                    right: {
+                        value: ""
+                    }
+                }
+            }
+        }
+
+        const vdom: DomNode = {
+            value: "d",
+            left: {
+                value: "c"
+            },
+            right: {
+                value: "f"
+            }
+        }
+
+        expect(isSubtree(dom, vdom)).to.equal(false)
+    });
+
+    /*This test will only pass if leaf nodes are marked as well as empty string node*/
+    it("Tree 10: Test 3 - Left Leaf is empty string - Not a subtree", () => {
+        const dom: DomNode = {
+            value: "b",
+            left: {
+                value: "a"
+            },
+            right: {
+                value: "d",
+                left: {
+                    value: "c"
+                },
+                right: {
+                    value: "f",
+                    left: {
+                        value: ""
+                    },
+                    right: {
+                        value: "k"
+                    }
+                }
+            }
+        }
+
+        const vdom: DomNode = {
+            value: "d",
+            left: {
+                value: "c"
+            },
+            right: {
+                value: "f"
+            }
+        }
+
+        expect(isSubtree(dom, vdom)).to.equal(false)
+    });
+
+    it("Tree 10: Test 4 - Right Leaf is empty string - Not a subtree", () => {
+        const dom: DomNode = {
+            value: "b",
+            left: {
+                value: "a"
+            },
+            right: {
+                value: "d",
+                left: {
+                    value: "c"
+                },
+                right: {
+                    value: "f",
+                    left: {
+                        value: "k"
+                    },
+                    right: {
+                        value: ""
+                    }
+                }
+            }
+        }
+
+        const vdom: DomNode = {
+            value: "d",
+            left: {
+                value: "c"
+            },
+            right: {
+                value: "f"
+            }
+        }
+
+        expect(isSubtree(dom, vdom)).to.equal(false)
+    });
+
+
+});
+
+describe("Subtree check with empty string as node in other tree.", () => {
+    it("Tree 11: Test 1 - The only leaf is empty string - Not a subtree", () => {
+        const dom: DomNode = {
+            value: "b",
+            left: {
+                value: "a"
+            },
+            right: {
+                value: "d",
+                left: {
+                    value: "c"
+                },
+                right: {
+                    value: "f",
+                }
+            }
+        }
+
+        const vdom: DomNode = {
+            value: "d",
+            left: {
+                value: "c"
+            },
+            right: {
+                value: "f",
+                right: {
+                    value: ""
+                }
+            }
+        }
+
+        expect(isSubtree(dom, vdom)).to.equal(false);
+
+    });
+
+    it("Tree 11: Test 2 - Left leaf is empty string - Not a subtree", () => {
+        const dom: DomNode = {
+            value: "b",
+            left: {
+                value: "a"
+            },
+            right: {
+                value: "d",
+                left: {
+                    value: "c"
+                },
+                right: {
+                    value: "f",
+                }
+            }
+        }
+
+        const vdom: DomNode = {
+            value: "d",
+            left: {
+                value: "c"
+            },
+            right: {
+                value: "f",
+                left: {
+                    value: ""
+                },
+                right: {
+                    value: "k"
+                }
+            }
+        }
+
+        expect(isSubtree(dom, vdom)).to.equal(false);
+
+    });
+
+    it("Tree 11: Test 3 - Right leaf is empty string - Not a subtree", () => {
+        const dom: DomNode = {
+            value: "b",
+            left: {
+                value: "a"
+            },
+            right: {
+                value: "d",
+                left: {
+                    value: "c"
+                },
+                right: {
+                    value: "f",
+                }
+            }
+        }
+
+        const vdom: DomNode = {
+            value: "d",
+            left: {
+                value: "c"
+            },
+            right: {
+                value: "f",
+                left: {
+                    value: "k"
+                },
+                right: {
+                    value: ""
+                }
+            }
+        }
+
+        expect(isSubtree(dom, vdom)).to.equal(false);
+
+    });
+
+    it("Tree 12: Test 1 - Left leaf is empty string - Not a subtree", () => {
+        const dom: DomNode = {
+            value: "b",
+            left: {
+                value: "a"
+            },
+            right: {
+                value: "d",
+                left: {
+                    value: "c"
+                },
+                right: {
+                    value: "f",
+                    left: {
+                        value: "k"
+                    }
+                }
+            }
+        }
+
+        const vdom: DomNode = {
+            value: "d",
+            left: {
+                value: "c"
+            },
+            right: {
+                value: "f",
+                left: {
+                    value: ""
+                },
+                right: {
+                    value: "k"
+                }
+            }
+        }
+
+        expect(isSubtree(dom, vdom)).to.equal(false);
+
+    });
+
+    it("Tree 12: Test 2 - Right leaf is empty string - Not a subtree", () => {
+        const dom: DomNode = {
+            value: "b",
+            left: {
+                value: "a"
+            },
+            right: {
+                value: "d",
+                left: {
+                    value: "c"
+                },
+                right: {
+                    value: "f",
+                    left: {
+                        value: "k"
+                    }
+                }
+            }
+        }
+
+        const vdom: DomNode = {
+            value: "d",
+            left: {
+                value: "c"
+            },
+            right: {
+                value: "f",
+                left: {
+                    value: "k"
+                },
+                right: {
+                    value: ""
+                }
+            }
+        }
+
+        expect(isSubtree(dom, vdom)).to.equal(false);
+
+    });
+
+    it("Tree 12: Test 3 - Middle node is empty string with only right child - Not a subtree", () => {
+        const dom: DomNode = {
+            value: "b",
+            left: {
+                value: "a"
+            },
+            right: {
+                value: "d",
+                left: {
+                    value: "c"
+                },
+                right: {
+                    value: "f",
+                    left: {
+                        value: "k"
+                    }
+                }
+            }
+        }
+
+        const vdom: DomNode = {
+            value: "d",
+            left: {
+                value: "c"
+            },
+            right: {
+                value: "f",
+                right: {
+                    value: "",
+                    right: {
+                        value: "k"
+                    }
+                }
+            }
+        }
+
+        expect(isSubtree(dom, vdom)).to.equal(false);
+
+    });
+
+    it("Tree 12: Test 4 - Middle node is empty string with only left child - Not a subtree", () => {
+        const dom: DomNode = {
+            value: "b",
+            left: {
+                value: "a"
+            },
+            right: {
+                value: "d",
+                left: {
+                    value: "c"
+                },
+                right: {
+                    value: "f",
+                    left: {
+                        value: "k"
+                    }
+                }
+            }
+        }
+
+        const vdom: DomNode = {
+            value: "d",
+            left: {
+                value: "c"
+            },
+            right: {
+                value: "f",
+                right: {
+                    value: "",
+                    right: {
+                        value: "k"
+                    }
+                }
+            }
+        }
+
+        expect(isSubtree(dom, vdom)).to.equal(false);
+
+    });
 });
