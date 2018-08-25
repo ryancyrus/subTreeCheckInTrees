@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import { DomNode, isSubtree } from '../src/binarySubtreeCheck';
 
-describe('Check subtree using Preorder traversal with termination markup.', () => {
-    it("Original Test - Is a subtree", () => {
+describe('Check subtree using Preorder traversal with termination markup.', function () {
+    it("Original Test - Is a subtree", function () {
         const dom: DomNode = {
             value: "root",
             left: {
@@ -42,7 +42,7 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
                 }
             }
         }
-        
+
         const vdom: DomNode = {
             value: "a",
             left: {
@@ -61,10 +61,10 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
                 }
             }
         }
-        expect(isSubtree(dom, vdom)).to.equal(true);
+        expect(isSubtree(dom, vdom)).to.be.true;
     });
 
-    it("Tree 1: Test 1 - Not a subtree", () =>{
+    it("Tree 1: Test 1 - Not a subtree", function () {
         const dom: DomNode = {
             value: "root",
             left: {
@@ -100,11 +100,11 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
 
     });
 
-    it("Tree 1: Test 2 - Not a subtree", () =>{
+    it("Tree 1: Test 2 - Not a subtree", function () {
         const dom: DomNode = {
             value: "root",
             left: {
@@ -140,11 +140,11 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
 
     });
 
-    it("Tree 2: Test 1 - Not a subtree", () =>{
+    it("Tree 2: Test 1 - Not a subtree", function () {
         const dom: DomNode = {
             value: "root",
             left: {
@@ -180,11 +180,11 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
 
     });
 
-    it("Tree 3: Test 1 - Not a subtree", () =>{
+    it("Tree 3: Test 1 - Not a subtree", function () {
         const dom: DomNode = {
             value: "a",
             left: {
@@ -205,11 +205,11 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
 
     });
 
-    it("Tree 4: Test 1 - Not a subtree", () =>{
+    it("Tree 4: Test 1 - Not a subtree", function () {
         const dom: DomNode = {
             value: "x",
             left: {
@@ -239,11 +239,11 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
 
     });
 
-    it("Tree 4: Test 2 - Not a subtree", () =>{
+    it("Tree 4: Test 2 - Not a subtree", function () {
         const dom: DomNode = {
             value: "x",
             left: {
@@ -273,11 +273,11 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
 
     });
 
-    it("Tree 5: Test 1 - Not a subtree", () =>{
+    it("Tree 5: Test 1 - Not a subtree", function () {
         const dom: DomNode = {
             value: "x",
             left: {
@@ -304,11 +304,11 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
 
     });
 
-    it("Tree 6: Test 1 - Is a subtree", () =>{
+    it("Tree 6: Test 1 - Is a subtree", function () {
         const dom: DomNode = {
             value: "z",
             left: {
@@ -318,7 +318,7 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
                     right: {
                         value: "c"
                     }
-            
+
                 },
                 right: {
                     value: "b"
@@ -339,18 +339,18 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
                 right: {
                     value: "c"
                 }
-        
+
             },
             right: {
                 value: "b"
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(true)
+        expect(isSubtree(dom, vdom)).to.be.true;
 
     });
 
-    it("Tree 7: Test 1 - Not a subtree", () =>{
+    it("Tree 7: Test 1 - Not a subtree", function () {
         const dom: DomNode = {
             value: "b",
             left: {
@@ -380,11 +380,11 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
 
     });
 
-    it("Tree 8: Test 1 - Not a subtree", () =>{
+    it("Tree 8: Test 1 - Not a subtree", function () {
         const dom: DomNode = {
             value: "a",
             left: {
@@ -417,11 +417,11 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
 
     });
 
-    it("Tree 9: Test 1 - Not a subtree", () =>{
+    it("Tree 9: Test 1 - Not a subtree", function () {
         const dom: DomNode = {
             value: "a",
             left: {
@@ -454,7 +454,7 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
 
     });
 
@@ -462,8 +462,8 @@ describe('Check subtree using Preorder traversal with termination markup.', () =
 
 });
 
-describe("Subtree check with empty string as node in main tree.", () => {
-    it("Tree 10: Test 1 - Middle node is empty string - Not a subtree", () => {
+describe("Subtree check with empty string as node in main tree.", function () {
+    it("Tree 10: Test 1 - Middle node is empty string - Not a subtree", function () {
         const dom: DomNode = {
             value: "b",
             left: {
@@ -493,11 +493,11 @@ describe("Subtree check with empty string as node in main tree.", () => {
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
     });
 
     /*This test will only pass if leaf nodes are marked as well as empty string node*/
-    it("Tree 10: Test 2 - The only Leaf is empty string - Not a subtree", () => {
+    it("Tree 10: Test 2 - The only Leaf is empty string - Not a subtree", function () {
         const dom: DomNode = {
             value: "b",
             left: {
@@ -527,11 +527,11 @@ describe("Subtree check with empty string as node in main tree.", () => {
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
     });
 
     /*This test will only pass if leaf nodes are marked as well as empty string node*/
-    it("Tree 10: Test 3 - Left Leaf is empty string - Not a subtree", () => {
+    it("Tree 10: Test 3 - Left Leaf is empty string - Not a subtree", function () {
         const dom: DomNode = {
             value: "b",
             left: {
@@ -564,10 +564,10 @@ describe("Subtree check with empty string as node in main tree.", () => {
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
     });
 
-    it("Tree 10: Test 4 - Right Leaf is empty string - Not a subtree", () => {
+    it("Tree 10: Test 4 - Right Leaf is empty string - Not a subtree", function () {
         const dom: DomNode = {
             value: "b",
             left: {
@@ -600,14 +600,14 @@ describe("Subtree check with empty string as node in main tree.", () => {
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false)
+        expect(isSubtree(dom, vdom)).to.be.false;
     });
 
 
 });
 
-describe("Subtree check with empty string as node in other tree.", () => {
-    it("Tree 11: Test 1 - The only leaf is empty string - Not a subtree", () => {
+describe("Subtree check with empty string as node in other tree.", function () {
+    it("Tree 11: Test 1 - The only leaf is empty string - Not a subtree", function () {
         const dom: DomNode = {
             value: "b",
             left: {
@@ -637,11 +637,11 @@ describe("Subtree check with empty string as node in other tree.", () => {
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false);
+        expect(isSubtree(dom, vdom)).to.be.false;;
 
     });
 
-    it("Tree 11: Test 2 - Left leaf is empty string - Not a subtree", () => {
+    it("Tree 11: Test 2 - Left leaf is empty string - Not a subtree", function () {
         const dom: DomNode = {
             value: "b",
             left: {
@@ -674,11 +674,11 @@ describe("Subtree check with empty string as node in other tree.", () => {
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false);
+        expect(isSubtree(dom, vdom)).to.be.false;;
 
     });
 
-    it("Tree 11: Test 3 - Right leaf is empty string - Not a subtree", () => {
+    it("Tree 11: Test 3 - Right leaf is empty string - Not a subtree", function () {
         const dom: DomNode = {
             value: "b",
             left: {
@@ -711,11 +711,11 @@ describe("Subtree check with empty string as node in other tree.", () => {
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false);
+        expect(isSubtree(dom, vdom)).to.be.false;;
 
     });
 
-    it("Tree 12: Test 1 - Left leaf is empty string - Not a subtree", () => {
+    it("Tree 12: Test 1 - Left leaf is empty string - Not a subtree", function () {
         const dom: DomNode = {
             value: "b",
             left: {
@@ -751,11 +751,11 @@ describe("Subtree check with empty string as node in other tree.", () => {
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false);
+        expect(isSubtree(dom, vdom)).to.be.false;;
 
     });
 
-    it("Tree 12: Test 2 - Right leaf is empty string - Not a subtree", () => {
+    it("Tree 12: Test 2 - Right leaf is empty string - Not a subtree", function () {
         const dom: DomNode = {
             value: "b",
             left: {
@@ -791,51 +791,11 @@ describe("Subtree check with empty string as node in other tree.", () => {
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false);
+        expect(isSubtree(dom, vdom)).to.be.false;;
 
     });
 
-    it("Tree 12: Test 3 - Middle node is empty string with only right child - Not a subtree", () => {
-        const dom: DomNode = {
-            value: "b",
-            left: {
-                value: "a"
-            },
-            right: {
-                value: "d",
-                left: {
-                    value: "c"
-                },
-                right: {
-                    value: "f",
-                    left: {
-                        value: "k"
-                    }
-                }
-            }
-        }
-
-        const vdom: DomNode = {
-            value: "d",
-            left: {
-                value: "c"
-            },
-            right: {
-                value: "f",
-                right: {
-                    value: "",
-                    right: {
-                        value: "k"
-                    }
-                }
-            }
-        }
-
-        expect(isSubtree(dom, vdom)).to.equal(false);
-
-    });
-
-    it("Tree 12: Test 4 - Middle node is empty string with only left child - Not a subtree", () => {
+    it("Tree 12: Test 3 - Middle node is empty string with only right child - Not a subtree", function () {
         const dom: DomNode = {
             value: "b",
             left: {
@@ -871,7 +831,47 @@ describe("Subtree check with empty string as node in other tree.", () => {
             }
         }
 
-        expect(isSubtree(dom, vdom)).to.equal(false);
+        expect(isSubtree(dom, vdom)).to.be.false;;
+
+    });
+
+    it("Tree 12: Test 4 - Middle node is empty string with only left child - Not a subtree", function () {
+        const dom: DomNode = {
+            value: "b",
+            left: {
+                value: "a"
+            },
+            right: {
+                value: "d",
+                left: {
+                    value: "c"
+                },
+                right: {
+                    value: "f",
+                    left: {
+                        value: "k"
+                    }
+                }
+            }
+        }
+
+        const vdom: DomNode = {
+            value: "d",
+            left: {
+                value: "c"
+            },
+            right: {
+                value: "f",
+                right: {
+                    value: "",
+                    right: {
+                        value: "k"
+                    }
+                }
+            }
+        }
+
+        expect(isSubtree(dom, vdom)).to.be.false;;
 
     });
 });

@@ -13,5 +13,5 @@ function stringFromPreOrder(tree: DomNode): string {
     if (!tree) {
         return "$";
     }
-    return ((tree.value === "" ? "^" : tree.value) + stringFromPreOrder(tree.left) + stringFromPreOrder(tree.right));
+    return (tree.value === '' ? "^" : tree.value) + stringFromPreOrder(tree.left) + stringFromPreOrder(tree.right);
 }

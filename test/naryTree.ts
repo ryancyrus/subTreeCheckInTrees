@@ -1,8 +1,8 @@
 import { expect } from 'chai';
 import { DomNode, isSubtree, containsTree } from '../src/narySubtreeCheck';
 
-describe("N-ary Subtree check using string computation", () => {
-    it("3-ary Tree 1: Test 1 - Is a subtree", () => {
+describe("N-ary Subtree check using string computation", function () {
+    it("3-ary Tree 1: Test 1 - Is a subtree", function () {
         const naryT1: DomNode = {
             val: "a",
             children: [{ val: "b" },
@@ -26,10 +26,10 @@ describe("N-ary Subtree check using string computation", () => {
             ]
         }
 
-        expect(isSubtree(naryT1, naryT2, 3)).to.equal(true);
+        expect(isSubtree(naryT1, naryT2, 3)).to.be.true;
     });
 
-    it("4-ary Tree 1: Test 1 - Is a subtree ", () => {
+    it("4-ary Tree 1: Test 1 - Is a subtree ", function () {
         const naryT1: DomNode = {
             val: "a",
             children: [{
@@ -68,10 +68,10 @@ describe("N-ary Subtree check using string computation", () => {
             ]
         }
 
-        expect(isSubtree(naryT1, naryT2, 4)).to.equal(true);
+        expect(isSubtree(naryT1, naryT2, 4)).to.be.true;
     });
 
-    it("4-ary Tree 1: Test 2 - Not a subtree", () => {
+    it("4-ary Tree 1: Test 2 - Not a subtree", function () {
         const naryT1: DomNode = {
             val: "a",
             children: [{
@@ -109,10 +109,10 @@ describe("N-ary Subtree check using string computation", () => {
             children: [{ val: "r" }, { val: "h" }, { val: "e" }]
         }
 
-        expect(isSubtree(naryT1, naryT2, 4)).to.equal(false);
+        expect(isSubtree(naryT1, naryT2, 4)).to.be.false;
     });
 
-    it("4-ary Tree 2: Test 1 - Is a subtree", () => {
+    it("4-ary Tree 2: Test 1 - Is a subtree", function () {
         const naryT1: DomNode = {
             val: "root",
             children: [{
@@ -163,10 +163,10 @@ describe("N-ary Subtree check using string computation", () => {
             ]
         }
 
-        expect(isSubtree(naryT1, naryT2, 4)).to.equal(true);
+        expect(isSubtree(naryT1, naryT2, 4)).to.be.true;
     });
 
-    it("4-ary Tree 2: Test 2 - Not a subtree", () => {
+    it("4-ary Tree 2: Test 2 - Not a subtree", function () {
         const naryT1: DomNode = {
             val: "root",
             children: [{
@@ -224,10 +224,10 @@ describe("N-ary Subtree check using string computation", () => {
             ]
         }
 
-        expect(isSubtree(naryT1, naryT2, 4)).to.equal(false);
+        expect(isSubtree(naryT1, naryT2, 4)).to.be.false;
     });
 
-    it("5-ary Tree 1: Test 1 - Not a subtree", () => {
+    it("5-ary Tree 1: Test 1 - Not a subtree", function () {
         const naryT1: DomNode = {
             val: "p",
             children: [
@@ -246,10 +246,10 @@ describe("N-ary Subtree check using string computation", () => {
             children: [{ val: "o" }, { val: "u" }, { val: "e" }, { val: "a" }, { val: "i" }]
         }
 
-        expect(isSubtree(naryT1, naryT2, 5)).to.equal(true);
+        expect(isSubtree(naryT1, naryT2, 5)).to.be.true;
     });
 
-    it("5-ary Tree 1: Test 2 - Not a subtree", () => {
+    it("5-ary Tree 1: Test 2 - Not a subtree", function () {
         const naryT1: DomNode = {
             val: "p",
             children: [
@@ -268,46 +268,60 @@ describe("N-ary Subtree check using string computation", () => {
             children: [{ val: "o" }, { val: "u" }, { val: "r" }, { val: "q" }, { val: "x" }]
         }
 
-        expect(isSubtree(naryT1, naryT2, 5)).to.equal(false);
+        expect(isSubtree(naryT1, naryT2, 5)).to.be.false;
     });
 
-    it("6-ary Tree 1: Test 1 - Not a subtree", () => {
+    it("6-ary Tree 1: Test 1 - Not a subtree", function () {
         const naryT1: DomNode = {
             val: "a",
             children: [
-                { val: "b", 
-                children: [
-                    {val: "h", 
-                    children: [{val: "n"}, {val: "o"}]}, 
-                    {val: "i"}, {val: "j"}
-                ]}, { val: "c" }, { val: "d" }, 
-                    { val: "e", 
+                {
+                    val: "b",
                     children: [
-                        {val: "k", 
-                        children: [{val: "p"}]}, 
-                        {val: "l", 
-                        children: [{val:"q"}]
+                        {
+                            val: "h",
+                            children: [{ val: "n" }, { val: "o" }]
+                        },
+                        { val: "i" }, { val: "j" }
+                    ]
+                }, { val: "c" }, { val: "d" },
+                {
+                    val: "e",
+                    children: [
+                        {
+                            val: "k",
+                            children: [{ val: "p" }]
+                        },
+                        {
+                            val: "l",
+                            children: [{ val: "q" }]
                         }
-                    ]}, 
-                    { val: "f" }, 
-                    { val: "g", 
-                    children: [{val: "m"}] 
-                    }
-            ]   
+                    ]
+                },
+                { val: "f" },
+                {
+                    val: "g",
+                    children: [{ val: "m" }]
+                }
+            ]
         }
-        const naryT2: DomNode = { val: "b", 
-        children: [
-            {val: "h", 
-            children: [{val: "n"}, {val: "o"}]}, 
-            {val: "i"}
-        ]}
+        const naryT2: DomNode = {
+            val: "b",
+            children: [
+                {
+                    val: "h",
+                    children: [{ val: "n" }, { val: "o" }]
+                },
+                { val: "i" }
+            ]
+        }
 
-        expect(isSubtree(naryT1, naryT2, 6)).to.equal(false)
+        expect(isSubtree(naryT1, naryT2, 6)).to.be.false;
     });
 });
 
-describe("N-ary subtree check using findRootNMatchTree approach", () => {
-    it("3-ary Tree 1: Test 1 - Is a subtree", () => {
+describe("N-ary subtree check using findRootNMatchTree approach", function () {
+    it("3-ary Tree 1: Test 1 - Is a subtree", function () {
         const naryT1: DomNode = {
             val: "a",
             children: [{ val: "b" },
@@ -331,10 +345,10 @@ describe("N-ary subtree check using findRootNMatchTree approach", () => {
             ]
         }
 
-        expect(containsTree(naryT1, naryT2)).to.equal(true);
+        expect(containsTree(naryT1, naryT2)).to.be.true;
     });
 
-    it("4-ary Tree 1: Test 1 - Is a subtree ", () => {
+    it("4-ary Tree 1: Test 1 - Is a subtree ", function () {
         const naryT1: DomNode = {
             val: "a",
             children: [{
@@ -373,10 +387,10 @@ describe("N-ary subtree check using findRootNMatchTree approach", () => {
             ]
         }
 
-        expect(containsTree(naryT1, naryT2)).to.equal(true);
+        expect(containsTree(naryT1, naryT2)).to.be.true;
     });
 
-    it("4-ary Tree 1: Test 2 - Not a subtree", () => {
+    it("4-ary Tree 1: Test 2 - Not a subtree", function () {
         const naryT1: DomNode = {
             val: "a",
             children: [{
@@ -414,10 +428,10 @@ describe("N-ary subtree check using findRootNMatchTree approach", () => {
             children: [{ val: "r" }, { val: "h" }, { val: "e" }]
         }
 
-        expect(containsTree(naryT1, naryT2)).to.equal(false);
+        expect(containsTree(naryT1, naryT2)).to.be.false;
     });
 
-    it("4-ary Tree 2: Test 1 - Is a subtree", () => {
+    it("4-ary Tree 2: Test 1 - Is a subtree", function () {
         const naryT1: DomNode = {
             val: "root",
             children: [{
@@ -468,10 +482,10 @@ describe("N-ary subtree check using findRootNMatchTree approach", () => {
             ]
         }
 
-        expect(containsTree(naryT1, naryT2)).to.equal(true);
+        expect(containsTree(naryT1, naryT2)).to.be.true;
     });
 
-    it("4-ary Tree 2: Test 2 - Not a subtree", () => {
+    it("4-ary Tree 2: Test 2 - Not a subtree", function () {
         const naryT1: DomNode = {
             val: "root",
             children: [{
@@ -529,10 +543,10 @@ describe("N-ary subtree check using findRootNMatchTree approach", () => {
             ]
         }
 
-        expect(containsTree(naryT1, naryT2)).to.equal(false);
+        expect(containsTree(naryT1, naryT2)).to.be.false;
     });
 
-    it("5-ary Tree 1: Test 1 - Not a subtree", () => {
+    it("5-ary Tree 1: Test 1 - Not a subtree", function () {
         const naryT1: DomNode = {
             val: "p",
             children: [
@@ -551,10 +565,10 @@ describe("N-ary subtree check using findRootNMatchTree approach", () => {
             children: [{ val: "o" }, { val: "u" }, { val: "e" }, { val: "a" }, { val: "i" }]
         }
 
-        expect(containsTree(naryT1, naryT2)).to.equal(true);
+        expect(containsTree(naryT1, naryT2)).to.be.true;
     });
 
-    it("5-ary Tree 1: Test 2 - Not a subtree", () => {
+    it("5-ary Tree 1: Test 2 - Not a subtree", function () {
         const naryT1: DomNode = {
             val: "p",
             children: [
@@ -573,40 +587,54 @@ describe("N-ary subtree check using findRootNMatchTree approach", () => {
             children: [{ val: "o" }, { val: "u" }, { val: "r" }, { val: "q" }, { val: "x" }]
         }
 
-        expect(containsTree(naryT1, naryT2)).to.equal(false);
+        expect(containsTree(naryT1, naryT2)).to.be.false;
     });
 
-    it("6-ary Tree 1: Test 1 - Not a subtree", () => {
+    it("6-ary Tree 1: Test 1 - Not a subtree", function () {
         const naryT1: DomNode = {
             val: "a",
             children: [
-                { val: "b", 
-                children: [
-                    {val: "h", 
-                    children: [{val: "n"}, {val: "o"}]}, 
-                    {val: "i"}, {val: "j"}
-                ]}, { val: "c" }, { val: "d" }, 
-                    { val: "e", 
+                {
+                    val: "b",
                     children: [
-                        {val: "k", 
-                        children: [{val: "p"}]}, 
-                        {val: "l", 
-                        children: [{val:"q"}]
+                        {
+                            val: "h",
+                            children: [{ val: "n" }, { val: "o" }]
+                        },
+                        { val: "i" }, { val: "j" }
+                    ]
+                }, { val: "c" }, { val: "d" },
+                {
+                    val: "e",
+                    children: [
+                        {
+                            val: "k",
+                            children: [{ val: "p" }]
+                        },
+                        {
+                            val: "l",
+                            children: [{ val: "q" }]
                         }
-                    ]}, 
-                    { val: "f" }, 
-                    { val: "g", 
-                    children: [{val: "m"}] 
-                    }
-            ]   
+                    ]
+                },
+                { val: "f" },
+                {
+                    val: "g",
+                    children: [{ val: "m" }]
+                }
+            ]
         }
-        const naryT2: DomNode = { val: "b", 
-        children: [
-            {val: "h", 
-            children: [{val: "n"}, {val: "o"}]}, 
-            {val: "i"}
-        ]}
+        const naryT2: DomNode = {
+            val: "b",
+            children: [
+                {
+                    val: "h",
+                    children: [{ val: "n" }, { val: "o" }]
+                },
+                { val: "i" }
+            ]
+        }
 
-        expect(containsTree(naryT1, naryT2)).to.equal(false)
+        expect(containsTree(naryT1, naryT2)).to.be.false;
     });
 });

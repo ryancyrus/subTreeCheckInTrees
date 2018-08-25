@@ -12,7 +12,7 @@ export function isSubtree(dom: DomNode, vdom: DomNode, k: number): boolean {
 function stringFromPreOrder(tree: DomNode, k: number): string {
     let treeString = "";
     let absentNodes = k;
-    treeString += tree.val === "" ? "^" : tree.val;
+    treeString += tree.val === '' ? "^" : tree.val;
     if (tree.children) {
         absentNodes -= tree.children.length;
         for (let node of tree.children) {
@@ -35,7 +35,7 @@ export function containsTree(dom: DomNode, vdom: DomNode): boolean {
 function subtree(dom: DomNode, vdom: DomNode): boolean {
     if (!dom) {
         return false;
-    } else if (dom.val == vdom.val && matchTree(dom, vdom)) {
+    } else if (dom.val === vdom.val && matchTree(dom, vdom)) {
         return true;
     }
 
@@ -46,7 +46,7 @@ function subtree(dom: DomNode, vdom: DomNode): boolean {
             }
         }
     }
-    
+
     //dom.val != vdom.val
     return false;
 }
@@ -54,7 +54,7 @@ function subtree(dom: DomNode, vdom: DomNode): boolean {
 function matchTree(dom: DomNode, vdom: DomNode): boolean {
     /*Base Case
     If values don't match, return */
-    if (dom.val != vdom.val) {
+    if (dom.val !== vdom.val) {
         return false; //does not match
     }
 
@@ -67,21 +67,21 @@ function matchTree(dom: DomNode, vdom: DomNode): boolean {
     in such case.*/
     let bigChildrenLength: number = 0;
     let smallChildrenLength: number = 0;
-    
-    if (dom.children != undefined) {
+
+    if (dom.children !== undefined) {
         bigChildrenLength = dom.children.length;
     }
 
-    if (vdom.children != undefined) {
+    if (vdom.children !== undefined) {
         smallChildrenLength = vdom.children.length;
     }
 
-    if (bigChildrenLength != smallChildrenLength) {
+    if (bigChildrenLength !== smallChildrenLength) {
         return false; //Child nodes of trees are not equal
-    } else if (dom.children && vdom.children && (bigChildrenLength == smallChildrenLength)) {
+    } else if (dom.children && vdom.children && (bigChildrenLength === smallChildrenLength)) {
         /*Now the fact is established that both nodes have same values and
         same number of children. However, there can be zero children too.
-        Therefore, we checked if children are present and they are same in numbers.*/               
+        Therefore, we checked if children are present and they are same in numbers.*/
         let childrenMatch: boolean = true
         //We will now match each children of both nodes. 
         for (let i = 0; i < dom.children.length; i++) {
