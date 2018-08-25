@@ -12,7 +12,7 @@ export function isSubtree(dom: DomNode, vdom: DomNode, k: number): boolean {
 function stringFromPreOrder(tree: DomNode, k: number): string {
     let treeString = "";
     let absentNodes = k;
-    treeString += tree.val === '' ? "^" : tree.val;
+    treeString += tree.val === "" ? "^" : tree.val;
     if (tree.children) {
         absentNodes -= tree.children.length;
         for (let node of tree.children) {
