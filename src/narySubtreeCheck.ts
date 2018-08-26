@@ -10,9 +10,8 @@ export function isSubtree(dom: DomNode, vdom: DomNode, k: number): boolean {
 }
 
 function stringFromPreOrder(tree: DomNode, k: number): string {
-    let treeString = "";
     let absentNodes = k;
-    treeString += tree.val === "" ? "^" : tree.val;
+    let treeString = tree.val === "" ? "^" : tree.val;
     if (tree.children) {
         absentNodes -= tree.children.length;
         for (let node of tree.children) {
@@ -34,7 +33,7 @@ export function containsTree(dom: DomNode, vdom: DomNode): boolean {
 
 function subtree(dom: DomNode, vdom: DomNode): boolean {
     if (!dom) {
-        return false;
+         return false;
     } else if (dom.val === vdom.val && matchTree(dom, vdom)) {
         return true;
     }
