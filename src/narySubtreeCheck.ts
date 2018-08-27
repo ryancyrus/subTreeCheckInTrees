@@ -6,15 +6,13 @@ export interface DomNode {
 
 // Method 1
 export function isSubtree(dom: DomNode, vdom: DomNode, k: number): boolean {
-    if(!vdom){
-        return true;
-    }else if (!dom){
-        return false;
-    }
     return stringFromPreOrder(dom, k).indexOf(stringFromPreOrder(vdom, k)) > -1;
 }
 
 function stringFromPreOrder(tree: DomNode, k: number): string {
+    if(!tree){
+        return Array(k + 1).join("$");
+    }
     let absentNodes = k;
     let treeString = tree.val === "" ? "^" : tree.val;
     if (tree.children) {
@@ -102,3 +100,5 @@ function matchTree(dom: DomNode, vdom: DomNode): boolean {
     Therefore we can simply return True.*/
     return true;
 }
+
+console.log(stringFromPreOrder(null, 2));

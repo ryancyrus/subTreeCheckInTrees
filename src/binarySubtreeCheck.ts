@@ -6,11 +6,6 @@ export interface DomNode {
 
 //Method 1
 export function isSubtree(dom: DomNode, vdom: DomNode): boolean {
-    if(!vdom){
-        return true;
-    }else if (!dom){
-        return false;
-    }
     return stringFromPreOrder(dom).indexOf(stringFromPreOrder(vdom)) > -1;
 }
 
@@ -20,3 +15,5 @@ function stringFromPreOrder(tree: DomNode): string {
     }
     return (tree.value === "" ? "^" : tree.value) + stringFromPreOrder(tree.left) + stringFromPreOrder(tree.right);
 }
+
+console.log(stringFromPreOrder(null));
