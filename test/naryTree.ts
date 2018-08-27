@@ -1,6 +1,29 @@
 import { expect } from 'chai';
 import { DomNode, isSubtree, containsTree } from '../src/narySubtreeCheck';
 
+describe("Empty Trees cases - using string computation", function (){
+    it("Both trees empty - Is a subtree", function() {
+        const dom: DomNode = null;
+        const vdom: DomNode = null;
+        
+        expect(isSubtree(dom, vdom, 0)).to.be.true;
+    });
+
+    it("Main tree is empty but other is not - Not a subtree", function() {
+        const dom: DomNode = null;
+        const vdom: DomNode = { val: "v"};
+        
+        expect(isSubtree(dom, vdom, 1)).to.be.false;
+    });
+
+    it("Small tree is empty - Is a subtree", function() {
+        const dom: DomNode = { val: "v"};
+        const vdom: DomNode = null;
+        
+        expect(isSubtree(dom, vdom, 1)).to.be.true;
+    });
+});
+
 describe("N-ary Subtree check using string computation", function () {
     it("3-ary Tree 1: Test 1 - Is a subtree", function () {
         const naryT1: DomNode = {
@@ -317,6 +340,29 @@ describe("N-ary Subtree check using string computation", function () {
         }
 
         expect(isSubtree(naryT1, naryT2, 6)).to.be.false;
+    });
+});
+
+describe("Empty Trees cases - findRootNMatchTree approach", function (){
+    it("Both trees empty - Is a subtree", function() {
+        const dom: DomNode = null;
+        const vdom: DomNode = null;
+        
+        expect(isSubtree(dom, vdom, 0)).to.be.true;
+    });
+
+    it("Main tree is empty but other is not - Not a subtree", function() {
+        const dom: DomNode = null;
+        const vdom: DomNode = { val: "v"};
+        
+        expect(isSubtree(dom, vdom, 1)).to.be.false;
+    });
+
+    it("Small tree is empty - Is a subtree", function() {
+        const dom: DomNode = { val: "v"};
+        const vdom: DomNode = null;
+        
+        expect(isSubtree(dom, vdom, 1)).to.be.true;
     });
 });
 

@@ -1,6 +1,29 @@
 import { expect } from 'chai';
 import { DomNode, isSubtree } from '../src/binarySubtreeCheck';
 
+describe("Empty Trees cases", function (){
+    it("Both trees empty - Is a subtree", function() {
+        const dom: DomNode = null;
+        const vdom: DomNode = null;
+        
+        expect(isSubtree(dom, vdom)).to.be.true;
+    });
+
+    it("Main tree is empty but other is not - Not a subtree", function() {
+        const dom: DomNode = null;
+        const vdom: DomNode = { value: "v"};
+        
+        expect(isSubtree(dom, vdom)).to.be.false;
+    });
+
+    it("Small tree is empty - Is a subtree", function() {
+        const dom: DomNode = { value: "v"};
+        const vdom: DomNode = null;
+        
+        expect(isSubtree(dom, vdom)).to.be.true;
+    });
+});
+
 describe('Check subtree using Preorder traversal with termination markup.', function () {
     it("Original Test - Is a subtree", function () {
         const dom: DomNode = {
