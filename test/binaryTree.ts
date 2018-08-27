@@ -24,7 +24,7 @@ describe("Empty Trees cases", function (){
     });
 });
 
-describe('Check subtree using Preorder traversal with termination markup.', function () {
+describe('Check subtree using Preorder traversal with null nodes marked.', function () {
     it("Original Test - Is a subtree", function () {
         const dom: DomNode = {
             value: "root",

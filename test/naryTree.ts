@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { DomNode, isSubtree, containsTree } from '../src/narySubtreeCheck';
 
-describe("Empty Trees cases - using string computation", function (){
+describe("Empty Trees cases - using Preorder traversal with null nodes marked.", function (){
     it("Both trees empty - Is a subtree", function() {
         const dom: DomNode = null;
         const vdom: DomNode = null;
@@ -24,7 +24,7 @@ describe("Empty Trees cases - using string computation", function (){
     });
 });
 
-describe("N-ary Subtree check using string computation", function () {
+describe("N-ary Subtree check using Preorder traversal with null nodes marked.", function () {
     it("3-ary Tree 1: Test 1 - Is a subtree", function () {
         const naryT1: DomNode = {
             val: "a",
@@ -343,7 +343,7 @@ describe("N-ary Subtree check using string computation", function () {
     });
 });
 
-describe("Empty Trees cases - findRootNMatchTree approach", function (){
+describe("Empty Trees cases - findRootNMatchTree approach.", function (){
     it("Both trees empty - Is a subtree", function() {
         const dom: DomNode = null;
         const vdom: DomNode = null;
@@ -366,7 +366,7 @@ describe("Empty Trees cases - findRootNMatchTree approach", function (){
     });
 });
 
-describe("N-ary subtree check using findRootNMatchTree approach", function () {
+describe("N-ary subtree check using findRootNMatchTree approach.", function () {
     it("3-ary Tree 1: Test 1 - Is a subtree", function () {
         const naryT1: DomNode = {
             val: "a",
