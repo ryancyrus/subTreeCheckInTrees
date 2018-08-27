@@ -6,6 +6,11 @@ export interface DomNode {
 
 //Method 1
 export function isSubtree(dom: DomNode, vdom: DomNode): boolean {
+    if(!vdom){
+        return true;
+    }else if (!dom){
+        return false;
+    }
     return stringFromPreOrder(dom).indexOf(stringFromPreOrder(vdom)) > -1;
 }
 
