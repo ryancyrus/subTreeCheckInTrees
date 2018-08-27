@@ -11,7 +11,7 @@ export function isSubtree(dom: DomNode, vdom: DomNode, k: number): boolean {
 
 function stringFromPreOrder(tree: DomNode, k: number): string {
     if(!tree){
-        return Array(k + 1).join("$");
+        return "$";
     }
     let absentNodes = k;
     let treeString = tree.val === "" ? "^" : tree.val;
