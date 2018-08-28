@@ -10,6 +10,7 @@ export function isSubtree(dom: DomNode, vdom: DomNode): boolean {
 }
 
 function stringFromPreOrder(tree: DomNode): string {
+
   if (!tree) {
     return "$";
   }
@@ -17,3 +18,10 @@ function stringFromPreOrder(tree: DomNode): string {
     tree.value + stringFromPreOrder(tree.left) + stringFromPreOrder(tree.right)
   );
 }
+    if (!tree) {
+        return "$";
+    }
+    return (tree.value === "" ? "^" : tree.value) + stringFromPreOrder(tree.left) + stringFromPreOrder(tree.right);
+}
+
+console.log(stringFromPreOrder(null));
